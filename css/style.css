@@ -7,11 +7,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; 
+}
+
 body {
   font-family: 'Noto Sans JP', 'メイリオ', Meiryo, 'ヒラギノ角ゴ ProN', 'HiraKakuProN', 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'helvetica', 'arial', sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
+  background-color: #FCFCFC;
   color: #333;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -23,7 +29,6 @@ body {
   height: 400px; /* 高さはお好みで調整 */
   overflow: hidden;
 }
-
 .overlay {
   position: absolute;
   top: 0;
@@ -35,13 +40,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-h1 {
-  color: white;
-  font-size: 3em;
-  z-index: 2;
-}
-
 /* スライダーの画像 */
 .slider .slide {
   position: absolute;
@@ -51,7 +49,6 @@ h1 {
   opacity: 0;
   transition: opacity 2s ease-in-out;
 }
-
 .slider .active {
   opacity: 1;
 }
@@ -60,53 +57,126 @@ h1 {
 nav {
   background-color: #333;
 }
-
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
   padding: 10px 0;
 }
-
 nav a {
+  position: relative;
   color: white;
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
-
-/* セクション */
-section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
+nav a::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  bottom: -1px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
 }
-
+nav a:hover::after {
+  transform: scale(1, 1);
+}
+/* Title */
+h1 {
+  color: white;
+  font-size: 3rem;
+  z-index: 2;
+}
 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.25rem;
   margin-bottom: 20px;
   border-bottom: 2px solid #333;
   display: inline-block;
 }
 
+/* セクション */
+section {
+  margin: auto;
+}
+.section_inner {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+section p {
+  margin-bottom: 1.5rem;
+}
+/* list */
+.list-style01 {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+.list-style01 li {
+  padding: .2em .5em .2em 0;
+}
+.list-style01 li::marker {
+  color: #2589d0;
+  font-size: 1.1em;
+}
+dl.style01 {
+  margin-bottom: 0;
+}
+dl.style01 dt {
+  font-weight: 600;
+  display: inline-block;
+  background-color: #eee;
+  padding: 0.2em 0.5em;
+}
+dl.style01 dd {
+  position: relative;
+  padding: .2em .5em .2em 1em;
+}
+dl.style01 dd::after {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 5px;
+  height: 5px;
+  background-color: #333;
+
+}
+
+p.note {
+  font-size: 0.875rem;
+}
+
 /* Works セクション */
+.sec_works {
+  background-color: #F0F0F0;
+}
 .work-item {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  padding: 20px;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   overflow: hidden;
 }
-
 .work-item img {
   width: 100%;
   max-width: 400px;
   object-fit: cover;
 }
-
 .work-info {
-  padding: 20px;
+  padding: 0 20px;
   flex: 1;
 }
 
@@ -130,4 +200,9 @@ footer {
   .work-item img {
     width: 100%;
   }
+
+  dl.style01 dd {
+    font-size: 0.875rem;
+  }
+
 }

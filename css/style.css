@@ -86,6 +86,11 @@ nav a:hover::after {
   transform: scale(1, 1);
 }
 /* Title */
+h1,
+h2,
+h3 {
+  line-height: 1.4;
+}
 h1 {
   color: white;
   font-size: 3rem;
@@ -192,17 +197,20 @@ footer {
   .overlay h1 {
     font-size: 2rem;
   }
-
+  h3 {
+    font-size: 1.125rem;
+  }
   .work-item {
     flex-direction: column;
   }
-
   .work-item img {
     width: 100%;
   }
-
+  .work-info {
+    padding: 20px 0;
+  }
   dl.style01 dd {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>架空コーポレートサイト</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+    }
+
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .content {
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media(max-width:600px) {
+      nav {
+        display: block;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>架空コーポレートサイト</h1>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">会社概要</a>
+      <a href="#">サービス</a>
+      <a href="#">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://picsum.photos/id/1015/1200/600" class="slide active" alt="スライド1">
+    <img src="https://picsum.photos/id/1016/1200/600" class="slide" alt="スライド2">
+    <img src="https://picsum.photos/id/1018/1200/600" class="slide" alt="スライド3">
+  </section>
+
+  <section class="content">
+    <h2>サービス紹介</h2>
+    <p>こちらはデモ用のコーポレートサイトです。レスポンシブ対応を行い、シンプルなスライダーを実装しています。</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 架空会社 All rights reserved.</p>
+  </footer>
+
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+    function showSlide() {
+      slides.forEach((s, i) => s.classList.toggle("active", i === index));
+      index = (index + 1) % slides.length;
+    }
+    setInterval(showSlide, 3000); // 3秒ごとに切り替え
+  </script>
+</body>
+
+</html>
